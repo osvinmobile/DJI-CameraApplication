@@ -9,6 +9,7 @@ import com.secneo.sdk.Helper;
 public class MApplication extends Application {
 
     private FPVDemoApplication fpvDemoApplication;
+
     @Override
     protected void attachBaseContext(Context paramContext) {
         super.attachBaseContext(paramContext);
@@ -24,5 +25,4 @@ public class MApplication extends Application {
         super.onCreate();
         fpvDemoApplication.onCreate();
     }
-
 }

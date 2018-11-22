@@ -19,7 +19,7 @@ import dji.sdk.products.Aircraft;
 import dji.sdk.products.HandHeld;
 import dji.sdk.sdkmanager.DJISDKManager;
 
-public class FPVDemoApplication extends Application{
+public class FPVDemoApplication extends Application {
 
     public static final String FLAG_CONNECTION_CHANGE = "fpv_tutorial_connection_change";
 
@@ -39,7 +39,6 @@ public class FPVDemoApplication extends Application{
     }
 
     public FPVDemoApplication() {
-
     }
 
     /**
@@ -59,7 +58,7 @@ public class FPVDemoApplication extends Application{
 
         Camera camera = null;
 
-        if (getProductInstance() instanceof Aircraft){
+        if (getProductInstance() instanceof Aircraft) {
             camera = ((Aircraft) getProductInstance()).getCamera();
 
         } else if (getProductInstance() instanceof HandHeld) {
@@ -72,6 +71,7 @@ public class FPVDemoApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+
         mHandler = new Handler(Looper.getMainLooper());
 
         /**
@@ -83,7 +83,7 @@ public class FPVDemoApplication extends Application{
             //Listens to the SDK registration result
             @Override
             public void onRegister(DJIError djiError) {
-                if(djiError == DJISDKError.REGISTRATION_SUCCESS) {
+                if (djiError == DJISDKError.REGISTRATION_SUCCESS) {
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
                         @Override
@@ -113,12 +113,14 @@ public class FPVDemoApplication extends Application{
                 Log.d("TAG", "onProductDisconnect");
                 notifyStatusChange();
             }
+
             @Override
             public void onProductConnect(BaseProduct baseProduct) {
                 Log.d("TAG", String.format("onProductConnect newProduct:%s", baseProduct));
                 notifyStatusChange();
 
             }
+
             @Override
             public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
                                           BaseComponent newComponent) {
